@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from test_app.models import TestLead
+from .models import TestLead
 
 
 class TestSerialzer(serializers.ModelSerializer):
