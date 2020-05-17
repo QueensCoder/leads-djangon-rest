@@ -40,17 +40,30 @@ INSTALLED_APPS = [
     'test_app',
     'rest_framework',
     'pets',
+    'todos.apps.TodosConfig',
+    'corsheaders'
 ]
+
+# rest frame work settings
+REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES': [
+    'rest_framework.permissions.AllowAny', ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# list of allowed urls that will not cause cors issue when talking to each other
+CORS_ORIGIN_WHITELIST = ('http://localhost:3000', 'http://localhost:8000',
+                         )
 
 ROOT_URLCONF = 'leads.urls'
 

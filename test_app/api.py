@@ -7,7 +7,7 @@ from .serializers import TestSerialzer
 
 class TestViewSet(viewsets.ModelViewSet):
     queryset = TestLead.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
+    # permission_classes = [
+    #     permissions.AllowAny
+    # ]
     serializer_class = TestSerialzer
